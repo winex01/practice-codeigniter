@@ -31,7 +31,6 @@
 	            <thead>
 	                <tr>
 	                    <th>No</th>
-	                    <th>ID</th>
 	                    <th>Name</th>
 	                    <th>Age</th>
 	                    <th>Position</th>

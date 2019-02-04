@@ -20,8 +20,7 @@ class Employee extends CI_Controller {
             $no++;
             $row = array();
             $row[] = $no;
-            $row[] = $employee->first_name;
-            $row[] = $employee->last_name;
+            $row[] = ucwords($employee->last_name.' '.$employee->first_name);
             $row[] = $employee->age;
             $row[] = ucfirst($employee->description);
             			
