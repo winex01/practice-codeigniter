@@ -26,31 +26,21 @@
 			Add</a>
 
 			<hr />
-
-			<table id="mytable" class="table table-striped table-bordered" style="width:100%">
-		        <thead>
-		            <tr>
-		                <th>Name</th>
-		                <th>Age</th>
-		                <th>Office</th>
-		                <th>Position</th>
-		            </tr>
-		        </thead>
-		        <tbody>
-		            <tr>
-		                <td>Michael Bruce</td>
-		                <td>29</td>
-		                <td>Singapore</td>
-		                <td>Javascript Developer</td>
-		            </tr>
-		            <tr>
-		                <td>Donna Snider</td>
-		                <td>27</td>
-		                <td>New York</td>
-		                <td>Customer Support</td>
-		            </tr>
-		        </tbody>
-		    </table>
+			
+	    	<table id="mytable" class="table table-hover table-striped table-bordered" style="width:100%">
+	            <thead>
+	                <tr>
+	                    <th>No</th>
+	                    <th>ID</th>
+	                    <th>Name</th>
+	                    <th>Age</th>
+	                    <th>Position</th>
+	                    <th>Action</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	            </tbody>
+	        </table>
 		</div>
 	</div>
 
@@ -122,9 +112,34 @@
 		<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 
 		<script type="text/javascript">
-			$(document).ready(function() {
-			    $('#mytable').DataTable();
-			} );
+
+			$(function() {
+				//datatables
+			var table = $('#mytable').DataTable({ 
+			 
+			        "processing": true, //Feature control the processing indicator.
+			        "serverSide": true, //Feature control DataTables' server-side processing mode.
+			        "order": [], //Initial no order.
+			 
+			        // Load data for the table's content from an Ajax source
+			        "ajax": {
+			            "url": "<?php echo base_url('employeesList')?>",
+			            "type": "POST",
+			            "data": {
+			                '<?php csrfName(); ?>' : '<?php csrfHash(); ?>'
+			            }
+			        },
+			 
+			        //Set column definition initialisation properties.
+			        "columnDefs": [
+			            { 
+			                "targets": [ 0 ], //first column / numbering column
+			                "orderable": false, //set not orderable
+			            },
+			        ],
+			 
+			    });
+			});
 		</script>
 	
 	</body>
