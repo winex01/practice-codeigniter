@@ -10,6 +10,11 @@ class Employee extends CI_Controller {
 
     }
 
+    public function index()
+    {
+        $this->load->view('employee/view');
+    }
+
 	public function ajax_list()
     {
         $list = $this->employee->get_datatables();
