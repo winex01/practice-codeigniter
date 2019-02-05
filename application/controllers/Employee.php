@@ -59,5 +59,13 @@ class Employee extends CI_Controller {
             $this->employee->delete_employee()
         );        
     }
+
+    public function store()
+    {
+        $array = [
+            'test' => $this->input->post('fname')
+        ];
+        echo json_encode($array);
+    }
 	
 }

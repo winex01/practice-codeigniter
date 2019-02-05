@@ -38,6 +38,32 @@
 	<?php $this->load->view('employee/datatable') ?>
 
 	<?php $this->load->view('employee/delete') ?>
+
+	<script type="text/javascript">
+		$('#employee-form').on('submit', function(event) {
+			event.preventDefault();
+
+			$.ajax({
+				url: '<?= base_url('employee/add') ?>',
+				type: 'POST',
+				dataType: 'json',
+				data: {
+					'<?php csrfName(); ?>' : '<?php csrfHash(); ?>',
+					fname : $('#fname').val(),
+					lname : $('#lname').val(),
+					age : $('#age').val(),
+					position_id : $('#position_id').val()
+				},
+			})
+			.done(function(response) {
+				console.log(response);
+			})
+			.fail(function() {
+				console.log("error");
+			});
+			
+		});
+	</script>
 		
 	</body>
 </html>

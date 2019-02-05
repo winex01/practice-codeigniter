@@ -7,7 +7,7 @@
 			</div>
 			<div class="modal-body">
 				
-				<form class="form-horizontal" action="">
+				<form class="form-horizontal" id="employee-form">
 				
 				  <div class="form-group">
 				    <label class="control-label col-sm-4" for="fname">First name:</label>
@@ -32,9 +32,9 @@
 
 
 				  <div class="form-group">
-				    <label class="control-label col-sm-4" for="position">Position:</label>
+				    <label class="control-label col-sm-4" for="position_id">Position:</label>
 				    <div class="col-sm-8">
-				    	<select class="form-control" id="position">
+				    	<select class="form-control" id="position_id">
 						    <?php foreach ($positions as $position): ?>
 							    <option value="<?=$position->id ?>"><?= $position->description ?></option>
 						    <?php endforeach; ?>
@@ -43,13 +43,14 @@
 				  </div>
 
 
-				</form><!-- end form -->
 
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save</button>
+				<button type="submit" class="btn btn-primary">Save</button>
 			</div>
+
+				</form><!-- end form -->
 		</div>
 	</div>
 </div>
