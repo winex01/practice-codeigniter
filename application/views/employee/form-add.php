@@ -35,8 +35,9 @@
 				    <label class="control-label col-sm-4" for="position">Position:</label>
 				    <div class="col-sm-8">
 				    	<select class="form-control" id="position">
-						    <option>Customer Support</option>
-						    <option>Customer Support</option>
+						    <?php foreach ($positions as $position): ?>
+							    <option value="<?=$position->id ?>"><?= $position->description ?></option>
+						    <?php endforeach; ?>
 						  </select>
 				    </div>
 				  </div>

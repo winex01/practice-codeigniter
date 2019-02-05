@@ -12,7 +12,10 @@ class Employee extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('employee/view');
+        $this->load->model('position_model', 'position');
+        $positions = $this->position->all_positions();
+
+        $this->load->view('employee/view', compact('positions'));
     }
 
 	public function ajax_list()
