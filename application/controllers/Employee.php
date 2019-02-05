@@ -31,7 +31,7 @@ class Employee extends CI_Controller {
             			
             
             // $action = btnEdit($user->id, 'editUser').' '.confirmDelete($user->id, 'deleteUser', $btnState);
-            $action = confirmDelete($employee->id, 'employee/delete');
+            $action = confirm_delete($employee->id, 'employee/delete');
             $row[] = $action;
 
  
