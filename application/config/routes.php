@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // employee routes
 $route['employeesList'] = 'employee/ajax_list';
+$route['employee/delete'] = 'employee/destroy';
 
 
 $route['default_controller'] = 'employee';

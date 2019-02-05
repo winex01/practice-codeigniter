@@ -86,4 +86,18 @@ class Employee_model extends CI_Model {
         return $this->db->count_all_results();
     }
 
+
+    //
+    public function delete_employee()
+    {   
+        $id = $this->input->post('id');
+
+        if (empty($id) || $id == '') {
+            return false;
+        }
+        
+        $this->db->where('id', $id);
+        return $this->db->delete('employees');
+    }
+
 }

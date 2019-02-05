@@ -30,11 +30,9 @@ class Employee extends CI_Controller {
             $row[] = ucfirst($employee->description);
             			
             
-            // $btnState = $user->id == 1 && strtolower($user->first_name) == 'administrator' ? 'disabled' : '';
             // $action = btnEdit($user->id, 'editUser').' '.confirmDelete($user->id, 'deleteUser', $btnState);
-            // $row[] = $action;
-
-            $row[] = '';
+            $action = confirmDelete($employee->id, 'employee/delete');
+            $row[] = $action;
 
  
             $data[] = $row;
@@ -49,6 +47,14 @@ class Employee extends CI_Controller {
 
         //output to json format
         echo json_encode($output);
+    }
+
+    public function destroy()
+    {   
+
+        echo json_encode(
+            $this->employee->delete_employee()
+        );        
     }
 	
 }

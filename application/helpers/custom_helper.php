@@ -40,3 +40,14 @@ if ( ! function_exists('csrfHash'))
 }
 
 
+if ( ! function_exists('confirmDelete'))
+{
+    function confirmDelete($var, $url)
+    {
+        return '<button onclick="confirmDelete('.$var.' ,\''.$url.'\')" data-toggle="modal" class="btn btn-default btn-danger btn-sm" data-toggle="tooltip" title="Delete">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </button>';        
+    }   
+}
+
+
